@@ -35,6 +35,7 @@ public interface DocumentLoader {
 	 * Load a {@link Document document} from the supplied {@link InputSource source}.
 	 * @param inputSource the source of the document that is to be loaded
 	 * @param entityResolver the resolver that is to be used to resolve any entities
+	 * 						 提供一个如何寻找DTD声明的方法（默认方式是通过URl进行网络下载获取）
 	 * @param errorHandler used to report any errors during document loading
 	 * @param validationMode the type of validation
 	 * {@link org.springframework.util.xml.XmlValidationModeDetector#VALIDATION_DTD DTD}
