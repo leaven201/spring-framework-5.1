@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.lin"/>
 
 	<bean id="serviceImpl" class="com.lin.services.ServiceImpl">
 
 	</bean>
+
+	<bean id="getBeanTest" class="com.lin.services.GetBeanTest">
+<!--		动态地将teacher所代表的的bean作为getBean的返回值-->
+		<lookup-method name="getBean" bean="student"/>
+	</bean>
+
+	<bean id="teacher" class="com.lin.entity.Teacher"/>
+
+	<bean id="student" class="com.lin.entity.Student">
+		<constructor-arg value="0001" index="0"/>
+<!--		<constructor-arg value="一班" index="2"/>-->
+<!--		<constructor-arg value="Lin" index="1"/>-->
+	</bean>
+
+	<bean id="testChangeMethod" class="com.lin.services.TestChangeMethod">
+		<replaced-method name="changeMe" replacer="testMethodReplacer"/>
+	</bean>
+
+	<bean id="testMethodReplacer" class="com.lin.services.TestMethodReplacer"/>
 
 </beans>

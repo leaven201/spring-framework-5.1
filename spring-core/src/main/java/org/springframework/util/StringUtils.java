@@ -16,24 +16,11 @@
 
 package org.springframework.util;
 
+import org.springframework.lang.Nullable;
+
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
-
-import org.springframework.lang.Nullable;
+import java.util.*;
 
 /**
  * Miscellaneous {@link String} utility methods.
@@ -151,6 +138,7 @@ public abstract class StringUtils {
 	}
 
 	/**
+	 * 判断字符串是否有文本（全空格文本为空文本）
 	 * Check whether the given {@code String} contains actual <em>text</em>.
 	 * <p>More specifically, this method returns {@code true} if the
 	 * {@code String} is not {@code null}, its length is greater than 0,

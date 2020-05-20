@@ -1,6 +1,7 @@
 package com.lin.services;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -8,7 +9,7 @@ import javax.annotation.PostConstruct;
  * @author LinZebin
  * @date 2020/5/1 2:51 下午
  */
-//@Component
+@Component
 //@Scope("prototype")
 public class IndexService implements InitializingBean {
 

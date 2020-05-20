@@ -1,8 +1,10 @@
 package com.lin;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
+import com.lin.entity.Student;
+import com.lin.services.GetBeanTest;
+import com.lin.services.TestChangeMethod;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author LinZebin
@@ -11,10 +13,16 @@ import org.springframework.core.io.ClassPathResource;
 public class Test {
 
 	public static void main(String[] args) {
-//		ApplicationContext ac = new ClassPathXmlApplicationContext("beanFactoryTest.xml");
-//		System.out.println(ac.getBean("serviceImpl"));
-		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("beanFactoryTest.xml"));
-		System.out.println(bf.getBean("serviceImpl"));
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beanFactoryTest.xml");
+		TestChangeMethod testChangeMethod = (TestChangeMethod) ac.getBean("testChangeMethod");
+		testChangeMethod.changeMe();
+
+		GetBeanTest getBeanTest = (GetBeanTest) ac.getBean("getBeanTest");
+		getBeanTest.getBean().showMe();
+
+		Student student = (Student) ac.getBean("student");
+		System.out.println(student);
+
 
 	}
 
